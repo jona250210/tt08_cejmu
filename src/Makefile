@@ -1,2 +1,4 @@
+FILE ?= tt_um_cejmu
+
 convert: $(FILE).sv
-	yosys -p 'read_verilog -sv $(FILE).sv; write_verilog $(FILE).v;'
+	yosys -p 'read_verilog -sv *.sv; proc; hierarchy -top $(FILE); write_verilog $(FILE).v;'
