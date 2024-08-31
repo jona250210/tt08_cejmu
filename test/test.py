@@ -13,6 +13,7 @@ async def test_project(dut):
     # Set the clock period to 10 us (100 KHz)
     clock = Clock(dut.clk, 10, units="us")
     cocotb.start_soon(clock.start())
+    await ClockCycles(dut.clk, 1)
 
     # Reset
     dut._log.info("Reset")
@@ -20,30 +21,18 @@ async def test_project(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0  # Selecting baverage
     dut.rst_n.value = 0  # reset
-    dut.uio_in.value = int('0b10000000', base=0)
-    await ClockCycles(dut.clk, 10)
-    dut.rst_n.value = 1
-    dut.uio_in.value = int('0b00000000', base=0)
     await ClockCycles(dut.clk, 1)
+    dut.rst_n.value = 1
 
     dut._log.info("Test project baverage")
 
     # 50 cent input
     dut.ui_in.value = 1
-    dut.uio_in.value = int('0b10000000', base=0)
-    await ClockCycles(dut.clk, 1)
-    dut.uio_in.value = int('0b00000000', base=0)
     await ClockCycles(dut.clk, 1)
 
     # 1 euro input
     dut.ui_in.value = 2
-    dut.uio_in.value = int('0b10000000', base=0)
     await ClockCycles(dut.clk, 1)
-    dut.uio_in.value = int('0b00000000', base=0)
-    await ClockCycles(dut.clk, 1)
-    dut.uio_in.value = int('0b10000000', base=0)
-    await ClockCycles(dut.clk, 1)
-    dut.uio_in.value = int('0b00000000', base=0)
     await ClockCycles(dut.clk, 1)
 
     assert dut.uo_out.value == 1

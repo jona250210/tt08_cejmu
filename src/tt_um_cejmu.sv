@@ -40,7 +40,7 @@ module tt_um_cejmu (
 
     baverage bav0 (
         .x(ui_in[1:0]),
-        .clk(uio_in[7]),
+        .clk(clk),
         .rst(rst),
         .y(bav0_out)
     );

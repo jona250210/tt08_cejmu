@@ -206,7 +206,7 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
   (* module_not_derived = 32'd1 *)
   (* src = "tt_um_cejmu.sv:41.14-46.6" *)
   baverage bav0 (
-    .clk(uio_in[7]),
+    .clk(clk),
     .rst(rst),
     .x(ui_in[1:0]),
     .y(bav0_out)
