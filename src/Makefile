@@ -1,4 +1,5 @@
-FILE ?= tt_um_cejmu
+FILE = tt_um_cejmu
+#TARGET=synth_ice40
+MODULES = baverage/baverage.sv
 
-convert: $(FILE).sv
-	yosys -p 'read_verilog -sv *.sv; proc; hierarchy -top $(FILE); write_verilog $(FILE).v;'
+include Makefile.inc
