@@ -16,14 +16,14 @@ module tt_um_cejmu (
     input  logic       rst_n     // reset_n - low to reset
 );
 
-    parameter int          WIDTH = 16;
+    parameter int      WIDTH = 16;
 
     logic [7:0]        project_mux;
     logic              rst;
     logic              bav0_out;
     logic [7:0]        serdes_out;
 
-    logic [WIDTH-1:0]  add_a, add_b, cla_z;
+    logic [WIDTH-1:0]  add_a, add_b, cla_z; // TODO overflow bit
 
     always_comb begin
         case(uio_in[1:0]) // Multiplexer for submodule outputs
