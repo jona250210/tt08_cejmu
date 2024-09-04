@@ -16,14 +16,21 @@ module tt_um_cejmu (
     input  logic       rst_n     // reset_n - low to reset
 );
 
+    parameter int          WIDTH = 16;
+
     logic [7:0]        project_mux;
     logic              rst;
     logic              bav0_out;
+    logic [7:0]        serdes_out;
+
+    logic [WIDTH-1:0]  add_a, add_b, cla_z;
 
     always_comb begin
         case(uio_in[1:0]) // Multiplexer for submodule outputs
           2'b00: project_mux = {7'b0, bav0_out};
           // 2'b01: project_mux = ui_in + ui_in;
+          2'b10: project_mux = serdes_out;
+          2'b11: project_mux = serdes_out;
 
           default: project_mux = ui_in;
         endcase;
@@ -43,6 +50,24 @@ module tt_um_cejmu (
         .clk(clk),
         .rst(rst),
         .y(bav0_out)
+    );
+
+    io_serdes #(WIDTH) io_sd (
+        .clk(clk),
+        .reset(rst_n),
+        .inputs(ui_in),
+        .outputs(serdes_out),
+        .a(add_a),
+        .b(add_b),
+        .z(cla_z),
+        .start_calc(uio_in[2]),
+        .output_result(uio_in[3])
+    );
+
+    cla #(WIDTH) cla (
+        .a(add_a),
+        .b(add_b),
+        .z(cla_z)
     );
 
 endmodule
