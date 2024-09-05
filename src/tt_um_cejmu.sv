@@ -23,7 +23,8 @@ module tt_um_cejmu (
     logic              bav0_out;
     logic [7:0]        serdes_out;
 
-    logic [WIDTH-1:0]  add_a, add_b, cla_z; // TODO overflow bit
+    logic [WIDTH-1:0]  add_a, add_b;
+    logic [WIDTH:0]    cla_z;
 
     always_comb begin
         case(uio_in[1:0]) // Multiplexer for submodule outputs
@@ -38,8 +39,13 @@ module tt_um_cejmu (
 
     // All output pins must be assigned. If not used, assign to 0.
     assign uo_out  = project_mux;
-    assign uio_out = 0;
-    assign uio_oe  = 8'b00000000;
+
+    // bit 7 and 6 are overflow for adders.
+    // NOTE Can be changed, just inital idea
+    assign uio_oe  = 8'b11000000;
+    assign uio_out[7] = cla_z[WIDTH];
+    assign uio_out[6:0] = 0;
+
     assign rst = !rst_n;
 
     // List all unused inputs to prevent warnings
@@ -59,7 +65,7 @@ module tt_um_cejmu (
         .outputs(serdes_out),
         .a(add_a),
         .b(add_b),
-        .z(cla_z),
+        .z(cla_z[WIDTH-1:0]),
         .start_calc(uio_in[2]),
         .output_result(uio_in[3])
     );

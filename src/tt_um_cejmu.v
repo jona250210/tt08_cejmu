@@ -2147,24 +2147,23 @@ endmodule
 (* hdlname = "\\tt_um_cejmu" *)
 (* dynports =  1  *)
 (* top =  1  *)
-(* src = "tt_um_cejmu.sv:8.1-73.10" *)
+(* src = "tt_um_cejmu.sv:8.1-79.10" *)
 module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
-  (* src = "tt_um_cejmu.sv:46.11-46.45" *)
+  (* src = "tt_um_cejmu.sv:52.11-52.45" *)
   wire _00_;
   (* src = "tt_um_cejmu.sv:0.0-0.0" *)
   wire [7:0] _01_;
   (* src = "tt_um_cejmu.sv:0.0-0.0" *)
   wire [7:0] _02_;
+  (* src = "tt_um_cejmu.sv:49.18-49.24" *)
   wire _03_;
-  (* src = "tt_um_cejmu.sv:43.18-43.24" *)
-  wire _04_;
-  wire [7:0] _05_;
+  wire [7:0] _04_;
+  wire _05_;
   wire _06_;
   wire _07_;
+  (* src = "tt_um_cejmu.sv:52.21-52.45" *)
   wire _08_;
-  (* src = "tt_um_cejmu.sv:46.21-46.45" *)
-  wire _09_;
-  (* src = "tt_um_cejmu.sv:46.11-46.18" *)
+  (* src = "tt_um_cejmu.sv:52.11-52.18" *)
   wire _unused;
   (* src = "tt_um_cejmu.sv:26.24-26.29" *)
   wire [15:0] add_a;
@@ -2172,8 +2171,8 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
   wire [15:0] add_b;
   (* src = "tt_um_cejmu.sv:23.24-23.32" *)
   wire bav0_out;
-  (* src = "tt_um_cejmu.sv:26.38-26.43" *)
-  wire [15:0] cla_z;
+  (* src = "tt_um_cejmu.sv:27.24-27.29" *)
+  wire [16:0] cla_z;
   (* src = "tt_um_cejmu.sv:15.24-15.27" *)
   input clk;
   wire clk;
@@ -2204,31 +2203,31 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
   (* src = "tt_um_cejmu.sv:10.24-10.30" *)
   output [7:0] uo_out;
   wire [7:0] uo_out;
-  assign _04_ = ! (* src = "tt_um_cejmu.sv:43.18-43.24" *) rst_n;
-  function [7:0] _11_;
+  assign _03_ = ! (* src = "tt_um_cejmu.sv:49.18-49.24" *) rst_n;
+  function [7:0] _10_;
     input [7:0] a;
     input [23:0] b;
     input [2:0] s;
     (* full_case = 32'd1 *)
-    (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:29.9-36.16" *)
+    (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:30.9-37.16" *)
     (* parallel_case *)
     casez (s)
       3'b??1:
-        _11_ = b[7:0];
+        _10_ = b[7:0];
       3'b?1?:
-        _11_ = b[15:8];
+        _10_ = b[15:8];
       3'b1??:
-        _11_ = b[23:16];
+        _10_ = b[23:16];
       default:
-        _11_ = a;
+        _10_ = a;
     endcase
   endfunction
-  assign _05_ = _11_(ui_in, { 7'h00, bav0_out, serdes_out, serdes_out }, { _08_, _07_, _06_ });
-  assign _06_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:29.9-36.16" *) 2'h3;
-  assign _07_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:29.9-36.16" *) 2'h2;
-  assign _08_ = ! (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:29.9-36.16" *) uio_in[1:0];
+  assign _04_ = _10_(ui_in, { 7'h00, bav0_out, serdes_out, serdes_out }, { _07_, _06_, _05_ });
+  assign _05_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:30.9-37.16" *) 2'h3;
+  assign _06_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:30.9-37.16" *) 2'h2;
+  assign _07_ = ! (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:30.9-37.16" *) uio_in[1:0];
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:48.14-53.6" *)
+  (* src = "tt_um_cejmu.sv:54.14-59.6" *)
   baverage bav0 (
     .clk(clk),
     .rst(rst),
@@ -2236,14 +2235,14 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .y(bav0_out)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:67.18-71.6" *)
+  (* src = "tt_um_cejmu.sv:73.18-77.6" *)
   \$paramod\cla\WIDTH=s32'00000000000000000000000000010000  cla (
     .a(add_a),
     .b(add_b),
-    .z({ _03_, cla_z })
+    .z(cla_z)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:55.24-65.6" *)
+  (* src = "tt_um_cejmu.sv:61.24-71.6" *)
   \$paramod\io_serdes\WIDTH=s32'00000000000000000000000000010000  io_sd (
     .a(add_a),
     .b(add_b),
@@ -2253,16 +2252,17 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .outputs(serdes_out),
     .reset(rst_n),
     .start_calc(uio_in[2]),
-    .z(cla_z)
+    .z(cla_z[15:0])
   );
   assign uo_out = project_mux;
-  assign uio_out = 8'h00;
-  assign uio_oe = 8'h00;
-  assign rst = _04_;
-  assign _00_ = _09_;
+  assign uio_oe = 8'hc0;
+  assign uio_out[7] = cla_z[16];
+  assign uio_out[6:0] = 7'h00;
+  assign rst = _03_;
+  assign _00_ = _08_;
   assign _01_ = _02_;
-  assign _02_ = _05_;
-  assign _unused = _09_;
-  assign project_mux = _05_;
-  assign _09_ = 1'h0;
+  assign _02_ = _04_;
+  assign _unused = _08_;
+  assign project_mux = _04_;
+  assign _08_ = 1'h0;
 endmodule
