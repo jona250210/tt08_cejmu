@@ -6,7 +6,7 @@ import random
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 
-WIDTH = 16
+WIDTH = 24
 
 
 @cocotb.test()

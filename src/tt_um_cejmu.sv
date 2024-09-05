@@ -17,7 +17,7 @@ module tt_um_cejmu (
     input  logic       rst_n     // reset_n - low to reset
 );
 
-    parameter int      WIDTH = 16;
+    parameter int      WIDTH = 24;
 
     logic [7:0]        project_mux;
     logic              rst;
