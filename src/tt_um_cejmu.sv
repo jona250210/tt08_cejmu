@@ -5,6 +5,7 @@
 
 `default_nettype none
 
+(* keep_hierarchy *)
 module tt_um_cejmu (
     input  logic [7:0] ui_in,    // Dedicated inputs
     output logic [7:0] uo_out,   // Dedicated outputs
