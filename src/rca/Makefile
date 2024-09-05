@@ -1,5 +1,5 @@
 FILE = rca
 
-MODULES = rca_full_adder.sv
+MODULES = rca_fulladder.sv
 
 include ../Makefile.inc

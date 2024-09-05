@@ -4,10 +4,10 @@ module rca_tb ();
     logic [31:0] b;
     logic [32:0] z;
 
-    cla dut (
+    rca dut (
         .a(a),
         .b(b),
-        .z(z)
+        .s(z)
     );
 
     initial begin

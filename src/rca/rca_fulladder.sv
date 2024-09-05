@@ -1,4 +1,4 @@
-module rca_full_adder (
+module rca_fulladder (
     input logic a,
     input logic b,
     input logic c_in,
@@ -7,8 +7,8 @@ module rca_full_adder (
     output logic c_out
 );
 
-    assign s = a ^ b ^ ci; 
-    assign c_out = a & b | c_in & (a ^ b);
+    assign s = a ^ b ^ c_in; 
+    assign c_out = (a & b) | (c_in & (a ^ b));
 
 endmodule
 

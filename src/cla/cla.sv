@@ -1,4 +1,4 @@
-module cla #(parameter WIDTH = 4)(
+module cla #(parameter WIDTH = 32)(
     input logic [WIDTH-1:0] a,
     input logic [WIDTH-1:0] b,
 

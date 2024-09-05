@@ -24,7 +24,8 @@ module tt_um_cejmu (
     logic [7:0]        serdes_out;
 
     logic [WIDTH-1:0]  add_a, add_b;
-    logic [WIDTH:0]    cla_z;
+    logic [WIDTH:0]    cla_z, rca_z, add_result;
+    
 
     always_comb begin
         case(uio_in[1:0]) // Multiplexer for submodule outputs
@@ -44,7 +45,8 @@ module tt_um_cejmu (
     // NOTE Can be changed, just inital idea
     assign uio_oe  = 8'b11000000;
     assign uio_out[7] = cla_z[WIDTH];
-    assign uio_out[6:0] = 0;
+    assign uio_out[6] = rca_z[WIDTH];
+    assign uio_out[5:0] = 0;
 
     assign rst = !rst_n;
 
@@ -65,15 +67,23 @@ module tt_um_cejmu (
         .outputs(serdes_out),
         .a(add_a),
         .b(add_b),
-        .z(cla_z[WIDTH-1:0]),
+        .z(add_result[WIDTH-1:0]),
         .start_calc(uio_in[2]),
         .output_result(uio_in[3])
     );
+
+    assign add_result = (uio_in[1:0] == 2'b10) ? rca_z : cla_z;
 
     cla #(WIDTH) cla (
         .a(add_a),
         .b(add_b),
         .z(cla_z)
+    );
+
+    rca #(WIDTH) rca (
+        .a(add_a),
+        .b(add_b),
+        .s(rca_z)
     );
 
 endmodule
