@@ -1,4 +1,4 @@
-module coin_acceptor (clk, rst, pulse_in, coin_out, counting_out, pulse_out);
+module coin_acceptor (clk, rst, pulse_in, coin_out, pulse_out);
 
     localparam MAX_PULSE_COUNT = 50;
     localparam COIN_WIDTH = $clog2(MAX_PULSE_COUNT);
@@ -7,7 +7,6 @@ module coin_acceptor (clk, rst, pulse_in, coin_out, counting_out, pulse_out);
     input rst;
     input pulse_in;
     output reg [COIN_WIDTH-1:0] coin_out;
-    output counting_out;
     output pulse_out;    
     
     reg pulse0;
@@ -62,6 +61,5 @@ module coin_acceptor (clk, rst, pulse_in, coin_out, counting_out, pulse_out);
     end
 
     assign pulse_out = pulse2;
-    assign counting_out = counting;
 
 endmodule

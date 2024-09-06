@@ -22,11 +22,14 @@ module tt_um_cejmu (
     logic [7:0]        project_mux;
     logic              rst;
     logic              bav0_out;
-    logic [7:0]        ca_out;
+    logic              bav1_out;
     logic [7:0]        serdes_out;
 
     logic [WIDTH-1:0]  add_a, add_b;
     logic [WIDTH:0]    cla_z, rca_z, add_result;
+
+    logic [5:0]        coin;
+    logic              pulse_out;
     
 
     always_comb begin
@@ -34,7 +37,7 @@ module tt_um_cejmu (
           2'b00: project_mux = {7'b0, bav0_out};
           // 2'b01: project_mux = ui_in + ui_in;
           2'b10: project_mux = serdes_out;
-          2'b11: project_mux = ca_out;
+          2'b11: project_mux = {coin, pulse_out, bav1_out};
 
           default: project_mux = ui_in;
         endcase;
@@ -62,17 +65,23 @@ module tt_um_cejmu (
         .y(bav0_out)
     );
 
+    baverage bav1 (
+        .x(coin[1:0]),
+        .clk(clk),
+        .rst(rst),
+        .y(bav1_out)
+    );
+
     coin_acceptor ca (
         .clk(clk),
         .rst(rst),
         .pulse_in(ui_in[0]),
-        .coin_out(ca_out[5:0]),
-        .counting_out(ca_out[6]),
-        .pulse_out(ca_out[7])
+        .coin_out(coin),
+        .pulse_out(pulse_out)
     );
 
     // comment out for real hardware!
-    defparam ca.COMMIT_COUNTER_MAX = 15;
+    // defparam ca.COMMIT_COUNTER_MAX = 15;
 
     io_serdes #(WIDTH) io_sd (
         .clk(clk),

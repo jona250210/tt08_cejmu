@@ -176,14 +176,15 @@ async def test_coin_acceptor(dut):
 
     dut._log.info("Test project coin acceptor")
 
+    # 50 cent
     await ClockCycles(dut.clk, 1)
     dut.ui_in.value = 0
     await ClockCycles(dut.clk, 1)
     dut.ui_in.value = 1
-    await ClockCycles(dut.clk, 1)
-    dut.ui_in.value = 0
-    await ClockCycles(dut.clk, 1)
-    dut.ui_in.value = 1
+
+    await ClockCycles(dut.clk, 25)
+
+    # 1 Euro
     await ClockCycles(dut.clk, 1)
     dut.ui_in.value = 0
     await ClockCycles(dut.clk, 1)
@@ -193,6 +194,8 @@ async def test_coin_acceptor(dut):
     await ClockCycles(dut.clk, 1)
     dut.ui_in.value = 1
 
+    await ClockCycles(dut.clk, 50)
+
     # TODO
     # await FallingEdge(dut.uo_out[6]) # counting low
-    # assert dut.uo_out[5:0].value == 4
+    # assert dut.uo_out.value == 1
