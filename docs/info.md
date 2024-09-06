@@ -19,7 +19,7 @@ The goal of our design is to be able to show different RTL designs on a real chi
 ## How to test
 
 + 00: A state machine, which models a vending machine. This state machine outputs 1, if 1.50€ have been fed into it. Inputs are taken from ui_in[1:0] with the following meaning: 00 = 0€ (nothing changes), 01 = 0.50€, 10 = 1€, 11 = undefined
-+ 01: TODO @Derek
++ 01: A module that decodes pulses coming from a coin acceptor into coin ids. The number of pulses is equivalent with the decoded id. With a second instance of the vending machine automaton, this module makes it possible to physically insert coins into the machine.
 + 10: Ripple Carry Adder with 24 bit input and 25 bit output
 + 11: Carry Lookahead Adder with 24 bit input and 25 bit output
 
