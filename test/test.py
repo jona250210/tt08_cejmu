@@ -4,7 +4,7 @@
 import cocotb
 import random
 from cocotb.clock import Clock
-from cocotb.triggers import ClockCycles
+from cocotb.triggers import ClockCycles, FallingEdge
 
 WIDTH = 32
 
@@ -150,7 +150,6 @@ async def test_baverage(dut):
 
     assert dut.uo_out.value == 1
 
-
 def logic_vector2int(vec: []) -> int:
     result = 0
     for byte in vec:
@@ -158,3 +157,42 @@ def logic_vector2int(vec: []) -> int:
         result = result | byte
 
     return result
+
+@cocotb.test()
+async def test_coin_acceptor(dut):
+    dut._log.info("Start coin acceptor test")
+    # Setup
+    clock = Clock(dut.clk, 10, units="us")
+    cocotb.start_soon(clock.start())
+    await ClockCycles(dut.clk, 1)
+    # Reset
+    dut._log.info("Reset")
+    dut.ena.value = 1
+    dut.ui_in.value = 1
+    dut.uio_in.value = 3  # Selecting coin acceptor
+    dut.rst_n.value = 0  # reset
+    await ClockCycles(dut.clk, 1)
+    dut.rst_n.value = 1
+
+    dut._log.info("Test project coin acceptor")
+
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+
+    # TODO
+    # await FallingEdge(dut.uo_out[6]) # counting low
+    # assert dut.uo_out[5:0].value == 4
