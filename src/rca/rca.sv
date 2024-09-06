@@ -1,7 +1,6 @@
 module rca #(parameter WIDTH = 6)(
     input logic [WIDTH-1:0] a,
     input logic [WIDTH-1:0] b,
-    input logic [WIDTH-1:0] c_in,
     output logic [WIDTH:0]  s
 );
 
@@ -30,4 +29,4 @@ module rca #(parameter WIDTH = 6)(
     end
 `endif
 
-endmodule 
+endmodule

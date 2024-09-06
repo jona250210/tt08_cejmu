@@ -1,4 +1,4 @@
-module io_serdes #(parameter WIDTH=32)(
+module io_serdes #(parameter WIDTH=24)(
     input logic              clk,
     input logic              reset,
 

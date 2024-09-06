@@ -3272,24 +3272,21 @@ endmodule
 
 (* dynports =  1  *)
 (* hdlname = "\\rca" *)
-(* src = "rca/rca.sv:1.1-33.10" *)
-module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
+(* src = "rca/rca.sv:1.1-32.10" *)
+module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, s);
   (* src = "rca/rca.sv:2.29-2.30" *)
   input [23:0] a;
   wire [23:0] a;
   (* src = "rca/rca.sv:3.29-3.30" *)
   input [23:0] b;
   wire [23:0] b;
-  (* src = "rca/rca.sv:4.29-4.33" *)
-  input [23:0] c_in;
-  wire [23:0] c_in;
-  (* src = "rca/rca.sv:8.21-8.29" *)
+  (* src = "rca/rca.sv:7.21-7.29" *)
   wire [24:0] cc_carry;
-  (* src = "rca/rca.sv:5.29-5.30" *)
+  (* src = "rca/rca.sv:4.29-4.30" *)
   output [24:0] s;
   wire [24:0] s;
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[0].fa  (
     .a(a[0]),
     .b(b[0]),
@@ -3298,7 +3295,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[0])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[10].fa  (
     .a(a[10]),
     .b(b[10]),
@@ -3307,7 +3304,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[10])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[11].fa  (
     .a(a[11]),
     .b(b[11]),
@@ -3316,7 +3313,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[11])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[12].fa  (
     .a(a[12]),
     .b(b[12]),
@@ -3325,7 +3322,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[12])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[13].fa  (
     .a(a[13]),
     .b(b[13]),
@@ -3334,7 +3331,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[13])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[14].fa  (
     .a(a[14]),
     .b(b[14]),
@@ -3343,7 +3340,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[14])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[15].fa  (
     .a(a[15]),
     .b(b[15]),
@@ -3352,7 +3349,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[15])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[16].fa  (
     .a(a[16]),
     .b(b[16]),
@@ -3361,7 +3358,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[16])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[17].fa  (
     .a(a[17]),
     .b(b[17]),
@@ -3370,7 +3367,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[17])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[18].fa  (
     .a(a[18]),
     .b(b[18]),
@@ -3379,7 +3376,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[18])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[19].fa  (
     .a(a[19]),
     .b(b[19]),
@@ -3388,7 +3385,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[19])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[1].fa  (
     .a(a[1]),
     .b(b[1]),
@@ -3397,7 +3394,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[1])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[20].fa  (
     .a(a[20]),
     .b(b[20]),
@@ -3406,7 +3403,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[20])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[21].fa  (
     .a(a[21]),
     .b(b[21]),
@@ -3415,7 +3412,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[21])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[22].fa  (
     .a(a[22]),
     .b(b[22]),
@@ -3424,7 +3421,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[22])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[23].fa  (
     .a(a[23]),
     .b(b[23]),
@@ -3433,7 +3430,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[23])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[2].fa  (
     .a(a[2]),
     .b(b[2]),
@@ -3442,7 +3439,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[2])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[3].fa  (
     .a(a[3]),
     .b(b[3]),
@@ -3451,7 +3448,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[3])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[4].fa  (
     .a(a[4]),
     .b(b[4]),
@@ -3460,7 +3457,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[4])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[5].fa  (
     .a(a[5]),
     .b(b[5]),
@@ -3469,7 +3466,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[5])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[6].fa  (
     .a(a[6]),
     .b(b[6]),
@@ -3478,7 +3475,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[6])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[7].fa  (
     .a(a[7]),
     .b(b[7]),
@@ -3487,7 +3484,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[7])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[8].fa  (
     .a(a[8]),
     .b(b[8]),
@@ -3496,7 +3493,7 @@ module \$paramod\rca\WIDTH=s32'00000000000000000000000000011000 (a, b, c_in, s);
     .s(s[8])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rca/rca.sv:15.27-21.14" *)
+  (* src = "rca/rca.sv:14.27-20.14" *)
   rca_fulladder \generate_adder_modules[9].fa  (
     .a(a[9]),
     .b(b[9]),
@@ -3913,88 +3910,89 @@ module rca_fulladder(a, b, c_in, s, c_out);
 endmodule
 
 (* keep_hierarchy =  1  *)
+(* keep =  1  *)
 (* hdlname = "\\tt_um_cejmu" *)
 (* dynports =  1  *)
 (* top =  1  *)
-(* src = "tt_um_cejmu.sv:9.1-112.10" *)
+(* src = "tt_um_cejmu.sv:10.1-113.10" *)
 module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
-  (* src = "tt_um_cejmu.sv:59.11-59.45" *)
+  (* src = "tt_um_cejmu.sv:60.11-60.45" *)
   wire _00_;
   (* src = "tt_um_cejmu.sv:0.0-0.0" *)
   wire [7:0] _01_;
   (* src = "tt_um_cejmu.sv:0.0-0.0" *)
   wire [7:0] _02_;
-  (* src = "tt_um_cejmu.sv:98.26-98.46" *)
+  (* src = "tt_um_cejmu.sv:99.26-99.46" *)
   wire _03_;
-  (* src = "tt_um_cejmu.sv:56.18-56.24" *)
+  (* src = "tt_um_cejmu.sv:57.18-57.24" *)
   wire _04_;
   wire [7:0] _05_;
   wire _06_;
   wire _07_;
   wire _08_;
   wire _09_;
-  (* src = "tt_um_cejmu.sv:59.21-59.45" *)
+  (* src = "tt_um_cejmu.sv:60.21-60.45" *)
   wire _10_;
-  (* src = "tt_um_cejmu.sv:98.25-98.63" *)
+  (* src = "tt_um_cejmu.sv:99.25-99.63" *)
   wire [24:0] _11_;
-  (* src = "tt_um_cejmu.sv:59.11-59.18" *)
+  (* src = "tt_um_cejmu.sv:60.11-60.18" *)
   wire _unused;
-  (* src = "tt_um_cejmu.sv:28.24-28.29" *)
-  wire [23:0] add_a;
-  (* src = "tt_um_cejmu.sv:28.31-28.36" *)
-  wire [23:0] add_b;
-  (* src = "tt_um_cejmu.sv:29.38-29.48" *)
-  wire [24:0] add_result;
-  (* src = "tt_um_cejmu.sv:24.24-24.32" *)
-  wire bav0_out;
-  (* src = "tt_um_cejmu.sv:25.24-25.32" *)
-  wire bav1_out;
   (* src = "tt_um_cejmu.sv:29.24-29.29" *)
+  wire [23:0] add_a;
+  (* src = "tt_um_cejmu.sv:29.31-29.36" *)
+  wire [23:0] add_b;
+  (* src = "tt_um_cejmu.sv:30.38-30.48" *)
+  wire [24:0] add_result;
+  (* src = "tt_um_cejmu.sv:25.24-25.32" *)
+  wire bav0_out;
+  (* src = "tt_um_cejmu.sv:26.24-26.32" *)
+  wire bav1_out;
+  (* src = "tt_um_cejmu.sv:30.24-30.29" *)
   wire [24:0] cla_z;
-  (* src = "tt_um_cejmu.sv:16.24-16.27" *)
+  (* src = "tt_um_cejmu.sv:17.24-17.27" *)
   input clk;
   wire clk;
-  (* src = "tt_um_cejmu.sv:31.24-31.28" *)
+  (* src = "tt_um_cejmu.sv:32.24-32.28" *)
   wire [5:0] coin;
-  (* src = "tt_um_cejmu.sv:15.24-15.27" *)
+  (* src = "tt_um_cejmu.sv:16.24-16.27" *)
   input ena;
   wire ena;
-  (* src = "tt_um_cejmu.sv:22.24-22.35" *)
+  (* src = "tt_um_cejmu.sv:23.24-23.35" *)
   wire [7:0] project_mux;
-  (* src = "tt_um_cejmu.sv:32.24-32.33" *)
+  (* src = "tt_um_cejmu.sv:33.24-33.33" *)
   wire pulse_out;
-  (* src = "tt_um_cejmu.sv:29.31-29.36" *)
+  (* src = "tt_um_cejmu.sv:30.31-30.36" *)
   wire [24:0] rca_z;
-  (* src = "tt_um_cejmu.sv:23.24-23.27" *)
+  (* src = "tt_um_cejmu.sv:24.24-24.27" *)
   wire rst;
-  (* src = "tt_um_cejmu.sv:17.24-17.29" *)
+  (* src = "tt_um_cejmu.sv:18.24-18.29" *)
   input rst_n;
   wire rst_n;
-  (* src = "tt_um_cejmu.sv:26.24-26.34" *)
+  (* src = "tt_um_cejmu.sv:27.24-27.34" *)
   wire [7:0] serdes_out;
-  (* src = "tt_um_cejmu.sv:10.24-10.29" *)
+  (* src = "tt_um_cejmu.sv:11.24-11.29" *)
   input [7:0] ui_in;
   wire [7:0] ui_in;
-  (* src = "tt_um_cejmu.sv:12.24-12.30" *)
+  (* src = "tt_um_cejmu.sv:13.24-13.30" *)
   input [7:0] uio_in;
   wire [7:0] uio_in;
-  (* src = "tt_um_cejmu.sv:14.24-14.30" *)
+  (* src = "tt_um_cejmu.sv:15.24-15.30" *)
   output [7:0] uio_oe;
   wire [7:0] uio_oe;
-  (* src = "tt_um_cejmu.sv:13.24-13.31" *)
+  (* src = "tt_um_cejmu.sv:14.24-14.31" *)
   output [7:0] uio_out;
   wire [7:0] uio_out;
-  (* src = "tt_um_cejmu.sv:11.24-11.30" *)
+  (* src = "tt_um_cejmu.sv:12.24-12.30" *)
   output [7:0] uo_out;
   wire [7:0] uo_out;
-  assign _03_ = uio_in[1:0] == (* src = "tt_um_cejmu.sv:98.26-98.46" *) 2'h2;
-  assign _04_ = ! (* src = "tt_um_cejmu.sv:56.18-56.24" *) rst_n;
+  assign _03_ = uio_in[1:0] == (* src = "tt_um_cejmu.sv:99.26-99.46" *) 2'h2;
+  assign _04_ = ! (* src = "tt_um_cejmu.sv:57.18-57.24" *) rst_n;
   function [7:0] _14_;
     input [7:0] a;
     input [31:0] b;
     input [3:0] s;
     (* full_case = 32'd1 *)
-    (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:36.9-43.16" *)
+    (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:37.9-44.16" *)
     (* parallel_case *)
     casez (s)
       4'b???1:
@@ -4010,13 +4008,13 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     endcase
   endfunction
   assign _05_ = _14_(8'hxx, { 7'h00, bav0_out, coin, pulse_out, bav1_out, serdes_out, serdes_out }, { _09_, _08_, _07_, _06_ });
-  assign _06_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:36.9-43.16" *) 2'h3;
-  assign _07_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:36.9-43.16" *) 2'h2;
-  assign _08_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:36.9-43.16" *) 2'h1;
-  assign _09_ = ! (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:36.9-43.16" *) uio_in[1:0];
-  assign _11_ = _03_ ? (* src = "tt_um_cejmu.sv:98.25-98.63" *) rca_z : cla_z;
+  assign _06_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:37.9-44.16" *) 2'h3;
+  assign _07_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:37.9-44.16" *) 2'h2;
+  assign _08_ = uio_in[1:0] == (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:37.9-44.16" *) 2'h1;
+  assign _09_ = ! (* full_case = 32'd1 *) (* src = "tt_um_cejmu.sv:0.0-0.0|tt_um_cejmu.sv:37.9-44.16" *) uio_in[1:0];
+  assign _11_ = _03_ ? (* src = "tt_um_cejmu.sv:99.25-99.63" *) rca_z : cla_z;
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:61.14-66.6" *)
+  (* src = "tt_um_cejmu.sv:62.14-67.6" *)
   baverage bav0 (
     .clk(clk),
     .rst(rst),
@@ -4024,7 +4022,7 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .y(bav0_out)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:68.14-73.6" *)
+  (* src = "tt_um_cejmu.sv:69.14-74.6" *)
   baverage bav1 (
     .clk(clk),
     .rst(rst),
@@ -4032,7 +4030,7 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .y(bav1_out)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:75.19-81.6" *)
+  (* src = "tt_um_cejmu.sv:76.19-82.6" *)
   coin_acceptor ca (
     .clk(clk),
     .coin_out(coin),
@@ -4041,14 +4039,14 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .rst(rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:100.18-104.6" *)
+  (* src = "tt_um_cejmu.sv:101.18-105.6" *)
   \$paramod\cla\WIDTH=s32'00000000000000000000000000011000  cla (
     .a(add_a),
     .b(add_b),
     .z(cla_z)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:86.24-96.6" *)
+  (* src = "tt_um_cejmu.sv:87.24-97.6" *)
   \$paramod\io_serdes\WIDTH=s32'00000000000000000000000000011000  io_sd (
     .a(add_a),
     .b(add_b),
@@ -4061,7 +4059,7 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .z(add_result[23:0])
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:106.18-110.6" *)
+  (* src = "tt_um_cejmu.sv:107.18-111.6" *)
   \$paramod\rca\WIDTH=s32'00000000000000000000000000011000  rca (
     .a(add_a),
     .b(add_b),
