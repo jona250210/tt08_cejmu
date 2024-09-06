@@ -6,7 +6,7 @@ import random
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles, FallingEdge
 
-WIDTH = 32
+WIDTH = 24
 
 
 @cocotb.test()
@@ -169,7 +169,7 @@ async def test_coin_acceptor(dut):
     dut._log.info("Reset")
     dut.ena.value = 1
     dut.ui_in.value = 1
-    dut.uio_in.value = 3  # Selecting coin acceptor
+    dut.uio_in.value = 1  # Selecting coin acceptor
     dut.rst_n.value = 0  # reset
     await ClockCycles(dut.clk, 1)
     dut.rst_n.value = 1

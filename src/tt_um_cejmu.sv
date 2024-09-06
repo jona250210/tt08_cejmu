@@ -17,7 +17,7 @@ module tt_um_cejmu (
     input  logic       rst_n     // reset_n - low to reset
 );
 
-    parameter int      WIDTH = 32;
+    parameter int      WIDTH = 24;
 
     logic [7:0]        project_mux;
     logic              rst;
@@ -35,9 +35,9 @@ module tt_um_cejmu (
     always_comb begin
         case(uio_in[1:0]) // Multiplexer for submodule outputs
           2'b00: project_mux = {7'b0, bav0_out};
-          // 2'b01: project_mux = ui_in + ui_in;
+          2'b01: project_mux = {coin, pulse_out, bav1_out};
           2'b10: project_mux = serdes_out;
-          2'b11: project_mux = {coin, pulse_out, bav1_out};
+          2'b11: project_mux = serdes_out;
 
           default: project_mux = ui_in;
         endcase;
