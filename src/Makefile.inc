@@ -1,4 +1,4 @@
-FILE ?= cla
+FILE ?= tt_um_cejmu
 TARGET ?= synth
 
 simulation: test_pre
