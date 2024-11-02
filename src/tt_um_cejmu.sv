@@ -20,10 +20,7 @@ module tt_um_cejmu (
 
     parameter int      WIDTH = 24;
 
-    logic [7:0]        project_mux;
     logic              rst;
-    logic              bav0_out;
-    logic              bav1_out;
     logic [7:0]        serdes_out;
 
     logic [WIDTH-1:0]  add_a, add_b;
@@ -31,21 +28,10 @@ module tt_um_cejmu (
 
     logic [5:0]        coin;
     logic              pulse_out;
-    
 
-    always_comb begin
-        case(uio_in[1:0]) // Multiplexer for submodule outputs
-          2'b00: project_mux = {7'b0, bav0_out};
-          2'b01: project_mux = {coin, pulse_out, bav1_out};
-          2'b10: project_mux = serdes_out;
-          2'b11: project_mux = serdes_out;
-
-          default: project_mux = ui_in;
-        endcase;
-    end
 
     // All output pins must be assigned. If not used, assign to 0.
-    assign uo_out  = project_mux;
+    assign uo_out  = serdes_out;
 
     // bit 7 and 6 are overflow for adders.
     // NOTE Can be changed, just inital idea
@@ -59,31 +45,6 @@ module tt_um_cejmu (
     // List all unused inputs to prevent warnings
     logic _unused = &{ena, clk, rst_n, 1'b0};
 
-    baverage bav0 (
-        .x(ui_in[1:0]),
-        .clk(clk),
-        .rst(rst),
-        .y(bav0_out)
-    );
-
-    baverage bav1 (
-        .x(coin[1:0]),
-        .clk(clk),
-        .rst(rst),
-        .y(bav1_out)
-    );
-
-    coin_acceptor ca (
-        .clk(clk),
-        .rst(rst),
-        .pulse_in(ui_in[0]),
-        .coin_out(coin),
-        .pulse_out(pulse_out)
-    );
-
-    // comment out for real hardware!
-    // defparam ca.COMMIT_COUNTER_MAX = 15;
-
     io_serdes #(WIDTH) io_sd (
         .clk(clk),
         .reset(rst_n),
@@ -96,7 +57,7 @@ module tt_um_cejmu (
         .output_result(uio_in[3])
     );
 
-    assign add_result = (uio_in[1:0] == 2'b10) ? rca_z : cla_z;
+    assign add_result = (uio_in[0]) ? rca_z : cla_z;
 
     cla #(WIDTH) cla (
         .a(add_a),
