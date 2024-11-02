@@ -158,16 +158,10 @@ endmodule
 (* keep =  1  *)
 (* hdlname = "\\tt_um_cejmu" *)
 (* top =  1  *)
-(* src = "tt_um_cejmu.sv:7.1-36.10" *)
+(* src = "tt_um_cejmu.sv:7.1-35.10" *)
 module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
-  (* src = "tt_um_cejmu.sv:27.9-27.31" *)
+  (* src = "tt_um_cejmu.sv:26.16-26.22" *)
   wire _0_;
-  (* src = "tt_um_cejmu.sv:24.16-24.22" *)
-  wire _1_;
-  (* src = "tt_um_cejmu.sv:27.19-27.31" *)
-  wire _2_;
-  (* src = "tt_um_cejmu.sv:27.9-27.16" *)
-  wire _unused;
   (* src = "tt_um_cejmu.sv:19.9-19.17" *)
   wire bav0_out;
   (* src = "tt_um_cejmu.sv:14.24-14.27" *)
@@ -196,9 +190,9 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
   (* src = "tt_um_cejmu.sv:9.24-9.30" *)
   output [7:0] uo_out;
   wire [7:0] uo_out;
-  assign _1_ = ~ (* src = "tt_um_cejmu.sv:24.16-24.22" *) rst_n;
+  assign _0_ = ~ (* src = "tt_um_cejmu.sv:26.16-26.22" *) rst_n;
   (* module_not_derived = 32'd1 *)
-  (* src = "tt_um_cejmu.sv:29.12-34.4" *)
+  (* src = "tt_um_cejmu.sv:28.12-33.4" *)
   baverage bav0 (
     .clk(clk),
     .rst(rst),
@@ -206,8 +200,7 @@ module tt_um_cejmu(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     .y(bav0_out)
   );
   assign uo_out = { 7'h00, bav0_out };
-  assign rst = _1_;
-  assign _0_ = _2_;
-  assign _unused = _2_;
-  assign _2_ = 1'h0;
+  assign uio_oe = 8'hff;
+  assign uio_out = 8'h00;
+  assign rst = _0_;
 endmodule
