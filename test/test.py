@@ -22,7 +22,7 @@ async def test_cla(dut):
 
     for j in range(1000):
         dut.ui_in.value = 0
-        dut.uio_in.value = 0  # Selecting cla
+        dut.uio_in.value = 3  # Selecting cla
         dut._log.info("Reset")
         dut.rst_n.value = 0  # Reset
         await ClockCycles(dut.clk, 1)
@@ -78,7 +78,7 @@ async def test_rca(dut):
 
     for j in range(1000):
         dut.ui_in.value = 0
-        dut.uio_in.value = 1  # Selecting rca
+        dut.uio_in.value = 2  # Selecting rca
         dut._log.info("Reset")
         dut.rst_n.value = 0  # Reset
         await ClockCycles(dut.clk, 1)
@@ -121,6 +121,35 @@ async def test_rca(dut):
         assert result == a_op + b_op
 
 
+@cocotb.test()
+async def test_baverage(dut):
+    dut._log.info("Start baverage test")
+    # Setup
+    clock = Clock(dut.clk, 10, units="us")
+    cocotb.start_soon(clock.start())
+    await ClockCycles(dut.clk, 1)
+    # Reset
+    dut._log.info("Reset")
+    dut.ena.value = 1
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0  # Selecting baverage
+    dut.rst_n.value = 0  # reset
+    await ClockCycles(dut.clk, 1)
+    dut.rst_n.value = 1
+
+    dut._log.info("Test project baverage")
+
+    # 50 cent input
+    dut.ui_in.value = 1
+    await ClockCycles(dut.clk, 1)
+
+    # 1 euro input
+    dut.ui_in.value = 2
+    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 1)
+
+    assert dut.uo_out.value == 1
+
 def logic_vector2int(vec: []) -> int:
     result = 0
     for byte in vec:
@@ -128,3 +157,45 @@ def logic_vector2int(vec: []) -> int:
         result = result | byte
 
     return result
+
+@cocotb.test()
+async def test_coin_acceptor(dut):
+    dut._log.info("Start coin acceptor test")
+    # Setup
+    clock = Clock(dut.clk, 10, units="us")
+    cocotb.start_soon(clock.start())
+    await ClockCycles(dut.clk, 1)
+    # Reset
+    dut._log.info("Reset")
+    dut.ena.value = 1
+    dut.ui_in.value = 1
+    dut.uio_in.value = 1  # Selecting coin acceptor
+    dut.rst_n.value = 0  # reset
+    await ClockCycles(dut.clk, 1)
+    dut.rst_n.value = 1
+
+    dut._log.info("Test project coin acceptor")
+
+    # 50 cent
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+
+    await ClockCycles(dut.clk, 25)
+
+    # 1 Euro
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.ui_in.value = 1
+
+    await ClockCycles(dut.clk, 50)
+
+    # TODO
+    # await FallingEdge(dut.uo_out[6]) # counting low
+    # assert dut.uo_out.value == 1
