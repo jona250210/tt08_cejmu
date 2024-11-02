@@ -21,8 +21,10 @@ module tt_um_cejmu (
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out = {7'b0, bav0_out};
 
+  assign rst = ~rst_n;
+
   // List all unused inputs to prevent warnings
-  logic _unused = &{ena, clk, rst_n, 1'b0};
+  logic _unused = &{ena, 1'b0};
 
   baverage bav0 (
       .x  (ui_in[1:0]),
